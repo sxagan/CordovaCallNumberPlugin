@@ -30,8 +30,8 @@ public class CFCallNumber extends CordovaPlugin {
   private CordovaInterface cordova = null;
 
   @Override
-  public void initialize (CordovaInterface c, CordovaWebView w) {
-    /*try {
+  public void initialize (CordovaInterface cordova, CordovaWebView webView) {
+    try {
         if(this.cordova == null){
             Log.d("CFCallNumber","initialize - referencing instance cordova");
             this.cordova = cordova;
@@ -40,30 +40,24 @@ public class CFCallNumber extends CordovaPlugin {
         //throw e;
         Log.e("CFCallNumber","initialize - referencing instance cordova, thrown exception "+ e);
 
-    }*/
-    try {
-        cordova = c;
-    } catch(Exception e) {
-        //throw e;
-        Log.e("CFCallNumber","initialize - referencing instance cordova, thrown exception "+ e);
-
     }
   }
 
-  protected void getCallPermission(int requestCode) {
+  /*protected void getCallPermission(int requestCode) {
     cordova.requestPermission(this, requestCode, CALL_PHONE);
-  }
+  }*/
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     this.callbackContext = callbackContext;
     this.executeArgs = args;
 
-    if (cordova.hasPermission(CALL_PHONE)) {
+    /*if (cordova.hasPermission(CALL_PHONE)) {
       callPhone(executeArgs);
     } else {
       getCallPermission(CALL_REQ_CODE);
-    }
+    }*/
+    callPhone(executeArgs);
 
     return true;
   }
