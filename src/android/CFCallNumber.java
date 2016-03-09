@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.webkit.WebView;
 import android.util.Log;
 import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaWebView;
 
 public class CFCallNumber extends CordovaPlugin {
   public static final int CALL_REQ_CODE = 0;
@@ -26,7 +27,7 @@ public class CFCallNumber extends CordovaPlugin {
   private CallbackContext callbackContext;        // The callback context from which we were invoked.
   private JSONArray executeArgs;
 
-  private static CordovaInterface cordova = null;
+  private CordovaInterface cordova = null;
 
   @Override
   public void initialize (CordovaInterface cordova, CordovaWebView webView) {
