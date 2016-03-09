@@ -44,7 +44,7 @@ public class CFCallNumber extends CordovaPlugin {
   }
 
   protected void getCallPermission(int requestCode) {
-    this.cordova.requestPermission(this, requestCode, CALL_PHONE);
+    cordova.requestPermission(this, requestCode, CALL_PHONE);
   }
 
   @Override
@@ -52,7 +52,7 @@ public class CFCallNumber extends CordovaPlugin {
     this.callbackContext = callbackContext;
     this.executeArgs = args;
 
-    if (this.cordova.hasPermission(CALL_PHONE)) {
+    if (cordova.hasPermission(CALL_PHONE)) {
       callPhone(executeArgs);
     } else {
       getCallPermission(CALL_REQ_CODE);
@@ -100,12 +100,12 @@ public class CFCallNumber extends CordovaPlugin {
   }
 
   private boolean isTelephonyEnabled() {
-    TelephonyManager tm = (TelephonyManager) this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+    TelephonyManager tm = (TelephonyManager) cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
     return tm != null && tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
   }
 
   private String getDialerPackage(Intent intent) {
-    PackageManager packageManager = (PackageManager) this.cordova.getActivity().getPackageManager();
+    PackageManager packageManager = (PackageManager) cordova.getActivity().getPackageManager();
     List activities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
 
     for (int i = 0; i < activities.size(); i++) {
