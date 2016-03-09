@@ -30,12 +30,19 @@ public class CFCallNumber extends CordovaPlugin {
   private CordovaInterface cordova = null;
 
   @Override
-  public void initialize (CordovaInterface cordova, CordovaWebView webView) {
-    try {
+  public void initialize (CordovaInterface c, CordovaWebView w) {
+    /*try {
         if(this.cordova == null){
             Log.d("CFCallNumber","initialize - referencing instance cordova");
             this.cordova = cordova;
         }
+    } catch(Exception e) {
+        //throw e;
+        Log.e("CFCallNumber","initialize - referencing instance cordova, thrown exception "+ e);
+
+    }*/
+    try {
+        cordova = c;
     } catch(Exception e) {
         //throw e;
         Log.e("CFCallNumber","initialize - referencing instance cordova, thrown exception "+ e);
