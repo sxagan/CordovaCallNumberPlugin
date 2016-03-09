@@ -14,6 +14,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.telephony.TelephonyManager;
 import android.content.pm.PackageManager;
+import android.webkit.WebView;
+import android.util.Log;
+import org.apache.cordova.CordovaInterface;
 
 public class CFCallNumber extends CordovaPlugin {
   public static final int CALL_REQ_CODE = 0;
